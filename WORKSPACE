@@ -1,14 +1,13 @@
 load("@bazel_tools//tools/build_defs/repo:http.bzl", "http_archive")
-load("@bazel_tools//tools/build_defs/repo:git.bzl", "new_git_repository", "git_repository")
+load("@bazel_tools//tools/build_defs/repo:git.bzl", "git_repository", "new_git_repository")
 load("@bazel_tools//tools/build_defs/repo:utils.bzl", "maybe")
-
 
 http_archive(
     name = "io_bazel_rules_go",
-    sha256 = "d6ab6b57e48c09523e93050f13698f708428cfd5e619252e369d377af6597707",
+    sha256 = "91585017debb61982f7054c9688857a2ad1fd823fc3f9cb05048b0025c47d023",
     urls = [
-        "https://mirror.bazel.build/github.com/bazelbuild/rules_go/releases/download/v0.43.0/rules_go-v0.43.0.zip",
-        "https://github.com/bazelbuild/rules_go/releases/download/v0.43.0/rules_go-v0.43.0.zip",
+        "https://mirror.bazel.build/github.com/bazelbuild/rules_go/releases/download/v0.42.0/rules_go-v0.42.0.zip",
+        "https://github.com/bazelbuild/rules_go/releases/download/v0.42.0/rules_go-v0.42.0.zip",
     ],
 )
 
@@ -549,12 +548,12 @@ go_repository(
     version = "v0.0.0-20191125180803-fdd1cda4f05f",
 )
 
-go_repository(
-    name = "org_golang_x_mod",
-    importpath = "golang.org/x/mod",
-    sum = "h1:JgcxKXxCjrA2tyDP/aNU9K0Ck5Czfk6C7e2tMw7+bSI=",
-    version = "v0.0.0-20190513183733-4bf6d317e70e",
-)
+#go_repository(
+#name = "org_golang_x_mod",
+#importpath = "golang.org/x/mod",
+#sum = "h1:JgcxKXxCjrA2tyDP/aNU9K0Ck5Czfk6C7e2tMw7+bSI=",
+#version = "v0.0.0-20190513183733-4bf6d317e70e",
+#)
 
 go_repository(
     name = "org_golang_x_net",
@@ -619,6 +618,11 @@ go_repository(
     version = "v1.3.0",
 )
 
+load("//:deps.bzl", "bazoekt_go_dependencies")
+
+# gazelle:repository_macro deps.bzl%bazoekt_go_dependencies
+bazoekt_go_dependencies()
+
 go_rules_dependencies()
 
 go_register_toolchains(version = "1.20.7")
@@ -657,32 +661,27 @@ go_repository(
 
 ## Gotopt2
 
-go_repository(
-    name = "in_gopkg_yaml_v3",
-    importpath = "gopkg.in/yaml.v3",
-    sum = "h1:fxVm/GzAzEWqLHuvctI91KS9hhNmmWOoWu0XTYJS7CA=",
-    version = "v3.0.1",
-)
-
 BAZEL_BATS_VERSION = "0.30.0"
+
 BAZEL_BATS_SHA256 = "9ae647d2db3aa0bd36af84a0a864dce1c4a1c4f7207b240d3a809862944ecb18"
 
 maybe(
     http_archive,
     name = "bazel_bats",
+    sha256 = BAZEL_BATS_SHA256,
     strip_prefix = "bazel-bats-%s" % BAZEL_BATS_VERSION,
     urls = [
         "https://github.com/filmil/bazel-bats/archive/refs/tags/v%s.tar.gz" % BAZEL_BATS_VERSION,
     ],
-    sha256 = BAZEL_BATS_SHA256,
 )
 
 maybe(
     git_repository,
     name = "gotopt2",
-    remote = "https://github.com/filmil/gotopt2",
     commit = "6b2d474f2d3f0dc965fbc01f2afabbc36a790426",
+    remote = "https://github.com/filmil/gotopt2",
 )
-load("@gotopt2//build:deps.bzl", "gotopt2_dependencies")
-gotopt2_dependencies()
 
+load("@gotopt2//build:deps.bzl", "gotopt2_dependencies")
+
+gotopt2_dependencies()
