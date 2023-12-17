@@ -11,8 +11,20 @@ Thanks to the excellent [`zoekt`][zo] software by H,-W. Nijenhuis which does the
 
 ## Installation
 
-TBD, pending the resolution of https://github.com/bazelbuild/bazel-gazelle/issues/1694. Something weird is
-going on there.
+You will need [`bazel_rules_go`][brg] installed and operating in your repo.
+
+[brg]: https://github.com/bazelbuild/rules_go?tab=readme-ov-file#setup
+
+Add the following into your WORKSPACE file:
+
+```
+load("//:deps.bzl", "bazoekt_dependencies", "bazoekt_go_dependencies")
+bazoekt_dependencies()
+# gazelle:repository_macro deps.bzl%bazoekt_go_dependencies
+bazoekt_go_dependencies()
+load("@gotopt2//build:deps.bzl", "gotopt2_dependencies")
+gotopt2_dependencies()
+```
 
 ## Index
 
