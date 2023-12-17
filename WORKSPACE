@@ -22,8 +22,9 @@ http_archive(
 
 load("@io_bazel_rules_go//go:deps.bzl", "go_register_toolchains", "go_rules_dependencies")
 load("@bazel_gazelle//:deps.bzl", "gazelle_dependencies", "go_repository")
-load("//:deps.bzl", "bazoekt_go_dependencies")
+load("//:deps.bzl", "bazoekt_dependencies", "bazoekt_go_dependencies")
 
+bazoekt_dependencies()
 # gazelle:repository_macro deps.bzl%bazoekt_go_dependencies
 bazoekt_go_dependencies()
 
@@ -45,37 +46,6 @@ http_archive(
 load("@com_google_protobuf//:protobuf_deps.bzl", "protobuf_deps")
 
 protobuf_deps()
-
-http_archive(
-    name = "com_github_bazelbuild_buildtools",
-    sha256 = "ae34c344514e08c23e90da0e2d6cb700fcd28e80c02e23e4d5715dddcb42f7b3",
-    strip_prefix = "buildtools-4.2.2",
-    urls = [
-        "https://github.com/bazelbuild/buildtools/archive/refs/tags/4.2.2.tar.gz",
-    ],
-)
-
-
-#BAZEL_BATS_VERSION = "0.30.0"
-
-#BAZEL_BATS_SHA256 = "9ae647d2db3aa0bd36af84a0a864dce1c4a1c4f7207b240d3a809862944ecb18"
-
-#maybe(
-    #http_archive,
-    #name = "bazel_bats",
-    #sha256 = BAZEL_BATS_SHA256,
-    #strip_prefix = "bazel-bats-%s" % BAZEL_BATS_VERSION,
-    #urls = [
-        #"https://github.com/filmil/bazel-bats/archive/refs/tags/v%s.tar.gz" % BAZEL_BATS_VERSION,
-    #],
-#)
-
-#maybe(
-    #git_repository,
-    #name = "gotopt2",
-    #commit = "6b2d474f2d3f0dc965fbc01f2afabbc36a790426",
-    #remote = "https://github.com/filmil/gotopt2",
-#)
 
 load("@gotopt2//build:deps.bzl", "gotopt2_dependencies")
 
