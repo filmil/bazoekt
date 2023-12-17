@@ -1,0 +1,13 @@
+load("@bazel_gazelle//:def.bzl", "gazelle")
+
+# bazel run //:gazelle
+# bazel run //:gazelle -- update-repos --from_file=go.mod
+# gazelle:prefix github.com/filmil/bazoekt
+gazelle(name = "gazelle")
+
+load("@com_github_bazelbuild_buildtools//buildifier:def.bzl", "buildifier")
+
+# bazel run //:buildifier
+buildifier(
+    name = "buildifier",
+)
