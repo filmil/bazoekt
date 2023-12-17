@@ -1,5 +1,7 @@
 load("@bazel_tools//tools/build_defs/repo:http.bzl", "http_archive")
-load("@bazel_tools//tools/build_defs/repo:git.bzl", "new_git_repository")
+load("@bazel_tools//tools/build_defs/repo:git.bzl", "new_git_repository", "git_repository")
+load("@bazel_tools//tools/build_defs/repo:utils.bzl", "maybe")
+
 
 http_archive(
     name = "io_bazel_rules_go",
@@ -652,3 +654,35 @@ go_repository(
     sum = "h1:Ha0Z0YVIqFzxIovALSGOKWrzjBysKNAmzpRA8AXzzDM=",
     version = "v0.0.0-20211108135652-f8e8ada171c7",
 )
+
+## Gotopt2
+
+go_repository(
+    name = "in_gopkg_yaml_v3",
+    importpath = "gopkg.in/yaml.v3",
+    sum = "h1:fxVm/GzAzEWqLHuvctI91KS9hhNmmWOoWu0XTYJS7CA=",
+    version = "v3.0.1",
+)
+
+BAZEL_BATS_VERSION = "0.30.0"
+BAZEL_BATS_SHA256 = "9ae647d2db3aa0bd36af84a0a864dce1c4a1c4f7207b240d3a809862944ecb18"
+
+maybe(
+    http_archive,
+    name = "bazel_bats",
+    strip_prefix = "bazel-bats-%s" % BAZEL_BATS_VERSION,
+    urls = [
+        "https://github.com/filmil/bazel-bats/archive/refs/tags/v%s.tar.gz" % BAZEL_BATS_VERSION,
+    ],
+    sha256 = BAZEL_BATS_SHA256,
+)
+
+maybe(
+    git_repository,
+    name = "gotopt2",
+    remote = "https://github.com/filmil/gotopt2",
+    commit = "6b2d474f2d3f0dc965fbc01f2afabbc36a790426",
+)
+load("@gotopt2//build:deps.bzl", "gotopt2_dependencies")
+gotopt2_dependencies()
+

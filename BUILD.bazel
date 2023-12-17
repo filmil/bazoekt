@@ -11,3 +11,23 @@ load("@com_github_bazelbuild_buildtools//buildifier:def.bzl", "buildifier")
 buildifier(
     name = "buildifier",
 )
+
+sh_binary(
+    name = "index",
+    srcs = [ "run_zoekt_index.sh" ],
+    deps = ["@bazel_tools//tools/bash/runfiles"],
+    data = [
+        "@com_github_google_zoekt//cmd/zoekt-index",
+        "@gotopt2//cmd/gotopt2:gotopt2",
+    ]
+)
+
+sh_binary(
+    name = "serve",
+    srcs = [ "run_zoekt_server.sh" ],
+    deps = ["@bazel_tools//tools/bash/runfiles"],
+    data = [
+        "@com_github_google_zoekt//cmd/zoekt-webserver",
+        "@gotopt2//cmd/gotopt2:gotopt2",
+    ]
+)
