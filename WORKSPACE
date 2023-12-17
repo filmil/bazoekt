@@ -27,6 +27,8 @@ load("//:deps.bzl", "bazoekt_dependencies", "bazoekt_go_dependencies")
 bazoekt_dependencies()
 # gazelle:repository_macro deps.bzl%bazoekt_go_dependencies
 bazoekt_go_dependencies()
+load("@gotopt2//build:deps.bzl", "gotopt2_dependencies")
+gotopt2_dependencies()
 
 go_rules_dependencies()
 
@@ -44,9 +46,5 @@ http_archive(
 )
 
 load("@com_google_protobuf//:protobuf_deps.bzl", "protobuf_deps")
-
 protobuf_deps()
 
-load("@gotopt2//build:deps.bzl", "gotopt2_dependencies")
-
-gotopt2_dependencies()
