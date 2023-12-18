@@ -24,4 +24,6 @@ jobs:
         run: "bazel build //..."
       - name: Test
         run: "bazel test //..."
+      - name: "Build release binaries"
+        run: "bazel build --//:name_part_from_command_line=testonly //:release"
 
