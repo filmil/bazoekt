@@ -32,8 +32,6 @@ fi
 RLOC_gotopt2="${RLOC_gotopt2:-gotopt2/cmd/gotopt2/gotpt2_/gotopt2}"
 RLOC_zoekt="${RLOC_zoekt:-com_github_google_zoekt/cmd/zoekt-index/zoekt-index_/zoekt-index}"
 
-# This is seriously weird: should I be guessing the OS and architecture to get
-# at a binary that I want to use?
 readonly _gotopt_binary="$(rlocation ${RLOC_gotopt2})"
 readonly _zoekt_index_binary="$(rlocation ${RLOC_zoekt})"
 # Exit quickly if the binary isn't found. This may happen if the binary location
