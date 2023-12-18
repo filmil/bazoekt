@@ -20,7 +20,7 @@ jobs:
       - name: "Test"
         run: "bazel test --test_output=errors //..."
       - name: "Build binaries for ${{ matrix.os }}_${{ matrix.arch }}"
-        run: "bazel build --platforms=@io_bazel_rules_go//go/toolchain:${{ matrix.os }}_${{ matrix.arch}} --//cmd/gotopt2:name_part_from_command_line=${{ matrix.os }}-${{ matrix.arch }} //:release"
+        run: "bazel build --platforms=@io_bazel_rules_go//go/toolchain:${{ matrix.os }}_${{ matrix.arch}} --//:name_part_from_command_line=${{ matrix.os }}-${{ matrix.arch }} //:release"
       - name: "Publish ${{ matrix.os }}_${{ matrix.arch }}"
         uses: ncipollo/release-action@v1
         env:
