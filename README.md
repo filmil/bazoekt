@@ -18,21 +18,19 @@ You will need [`bazel_rules_go`][brg] installed and operating in your repo.
 Add the following into your WORKSPACE file:
 
 ```
-# Do not forget to add go tooling setup here.
-
-# Add this only if you haven't loaded `git_repository` before.
-load("@bazel_tools//tools/build_defs/repo:git.bzl", "git_repository")
-
-# bazoekt setup
-git_repository(
+# BEGIN: bazoekt
+http_archive(
     name = "bazoekt",
-    commit = "80ee9e3ed636275a193e01670640d52e3a0eb5be",
-    remote = "https://github.com/filmil/bazoekt",
+    sha256 = "",
+    strip_prefix = "bazoekt",
+    urls = [
+        "https://github.com/filmil/bazoekt/releases/download/0.0.7/bazoekt-linux-amd64.zip",
+    ],
 )
-load("@bazoekt//:deps.bzl", "bazoekt_dependencies", "bazoekt_go_dependencies")
-bazoekt_dependencies()
-bazoekt_go_dependencies()
+# END: bazoekt
 ```
+
+This should be enough to have `bazoekt` available to you.
 
 ## Index
 
