@@ -4,7 +4,7 @@ Easy indexing for your Bazel project. $\text{bazoekt} = \text{bazel} + \text{zoe
 
 This is a small wrapper and an easy addition to your Bazel projects, that provides powerful code indexing features. It is easy for anyone to add indexing to a Bazel project. But now, that work has been done for you, so you can save yourself some 30 or so minutes with `bazoekt`. Add it to your Bazel `WORKSPACE`, and you  get fast code indexing and search.
 
-Thanks to the excellent [`zoekt`][zo] software by H,-W. Nijenhuis which does the real actual work.
+Thanks to the excellent [`zoekt`][zo] software by H.-W. Nijenhuis which does the real actual work. I only provided the glue.
 
 
 [zo]: https://github.com/google/zoekt
