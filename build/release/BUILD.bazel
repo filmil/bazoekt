@@ -1,0 +1,38 @@
+exports_files(["WORKSPACE", "BUILD.bazel"])
+
+sh_binary(
+    name = "index",
+    srcs = [ "run_zoekt_index.sh" ],
+    deps = ["@bazel_tools//tools/bash/runfiles"],
+    data = [
+        ":zoekt-index",
+        ":gotopt2",
+    ],
+	args = [
+			"--zoekt-index-binary=$(location :zoekt-index)",
+	],
+	tags = ["manual"],
+	env = {
+		"RLOC_gotopt2": "exernal/bazoekt/gotopt2",
+		"RLOC_zoekt": "exernal/bazoekt/index",
+	}
+)
+
+sh_binary(
+    name = "serve",
+    srcs = [ "run_zoekt_server.sh" ],
+    deps = ["@bazel_tools//tools/bash/runfiles"],
+    data = [
+        ":zoekt-webserver",
+        ":gotopt2",
+    ],
+	args = [
+			"--zoekt-webserver-binary=$(location :zoekt-webserver)"
+	],
+	tags = ["manual"],
+	env = {
+		"RLOC_gotopt2": "exernal/bazoekt/gotopt2",
+		"RLOC_zoekt": "exernal/bazoekt/serve",
+	}
+)
+
