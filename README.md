@@ -11,10 +11,6 @@ Thanks to the excellent [`zoekt`][zo] software by H.-W. Nijenhuis which does the
 
 ## Installation
 
-You will need [`bazel_rules_go`][brg] installed and operating in your repo.
-
-[brg]: https://github.com/bazelbuild/rules_go?tab=readme-ov-file#setup
-
 Add the following into your WORKSPACE file:
 
 ```
