@@ -27,5 +27,5 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           allowUpdates: true
-          artifacts: "bazel-bin/cmd/gotopt2/gotopt2-${{ matrix.os }}-${{ matrix.arch }}.zip"
+          artifacts: "bazel-bin/bazoekt-${{ matrix.os }}-${{ matrix.arch }}.zip"
 
