@@ -8,9 +8,6 @@ sh_binary(
         ":zoekt-index",
         ":gotopt2",
     ],
-	args = [
-			"--zoekt-index-binary=$(location :zoekt-index)",
-	],
 	tags = ["manual"],
 )
 
@@ -22,9 +19,6 @@ sh_binary(
         ":zoekt-webserver",
         ":gotopt2",
     ],
-	args = [
-			"--zoekt-webserver-binary=$(location :zoekt-webserver)"
-	],
 	tags = ["manual"],
 )
 
