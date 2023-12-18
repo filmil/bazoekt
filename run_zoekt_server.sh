@@ -29,10 +29,9 @@ else
 fi
 # --- end runfiles.bash initialization ---
 
-RLOC_gotopt2="${RLOC_gotopt2:-gotopt2/cmd/gotopt2/gotpt2_/gotopt2}"
-RLOC_zoekt="${RLOC_zoekt:-com_github_google_zoekt/cmd/zoekt-index/zoekt-index_/zoekt-index}"
-readonly _gotopt_binary="$(rlocation ${RLOC_gotopt2})"
-readonly _zoekt_webserver_binary="$(rlocation ${RLOC_zoekt})"
+readonly _gotopt_binary="${RLOC_gotopt2:-$(rlocation gotopt2/cmd/gotopt2/gotopt2_/gotopt2)}"
+readonly _zoekt_binary="${RLOC_zoekt:-$(rlocation com_github_google_zoekt/cmd/zoekt-webserver/zoekt-webserver_/zoekt-webserver)}"
+
 # Exit quickly if the binary isn't found. This may happen if the binary location
 # moves internally in bazel.
 if [ -x "$(command -v ${_gotopt2_binary})" ]; then
@@ -45,7 +44,7 @@ flags:
 - name: "zoekt-webserver-binary"
   type: string
   help: "The path to the zoekt-webserver binary"
-  default: "${_zoekt_webserver_binary}"
+  default: "${_zoekt_binary}"
 - name: "zoekt-index"
   type: string
   help: "The directory to store index."

@@ -7,8 +7,13 @@ sh_binary(
     data = [
         ":zoekt-index",
         ":gotopt2",
+        "@bazel_tools//tools/bash/runfiles",
     ],
-	tags = ["manual"],
+    env = {
+        "RLOC_gotopt2": "external/bazoekt/gotopt2",
+        "RLOC_zoekt": "external/bazoekt/zoekt-index",
+    },
+    tags = ["manual"],
 )
 
 sh_binary(
@@ -18,7 +23,13 @@ sh_binary(
     data = [
         ":zoekt-webserver",
         ":gotopt2",
+        "@bazel_tools//tools/bash/runfiles",
     ],
-	tags = ["manual"],
+    env = {
+        "RLOC_gotopt2": "external/bazoekt/gotopt2",
+        "RLOC_zoekt": "external/bazoekt/zoekt-webserver",
+    },
+    tags = ["manual"],
 )
+
 

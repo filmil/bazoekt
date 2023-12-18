@@ -29,11 +29,9 @@ else
 fi
 # --- end runfiles.bash initialization ---
 
-RLOC_gotopt2="${RLOC_gotopt2:-gotopt2/cmd/gotopt2/gotpt2_/gotopt2}"
-RLOC_zoekt="${RLOC_zoekt:-com_github_google_zoekt/cmd/zoekt-index/zoekt-index_/zoekt-index}"
+readonly _gotopt_binary="${RLOC_gotopt2:-$(rlocation gotopt2/cmd/gotopt2/gotopt2_/gotopt2)}"
+readonly _zoekt_binary="${RLOC_zoekt:-$(rlocation com_github_google_zoekt/cmd/zoekt-index/zoekt-index_/zoekt-index)}"
 
-readonly _gotopt_binary="$(rlocation ${RLOC_gotopt2})"
-readonly _zoekt_index_binary="$(rlocation ${RLOC_zoekt})"
 # Exit quickly if the binary isn't found. This may happen if the binary location
 # moves internally in bazel.
 if [ -x "$(command -v ${_gotopt2_binary})" ]; then
@@ -50,7 +48,7 @@ flags:
 - name: "zoekt-index-binary"
   type: string
   help: "The path to the zoekt-index binary"
-  default: "${_zoekt_index_binary}"
+  default: "${_zoekt_binary}"
 - name: "zoekt-index"
   type: string
   help: "The directory to store index."
@@ -75,4 +73,5 @@ if [[ "${gotopt2_zoekt_index_binary}" == "" ]]; then
   exit 1
 fi
 
-"${_zoekt_index_binary}" -index ${gotopt2_zoekt_index} "${gotopt2_top_dir}"
+"${gotopt2_zoekt_index_binary}" \
+  -index ${gotopt2_zoekt_index} "${gotopt2_top_dir}"
