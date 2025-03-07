@@ -28,7 +28,7 @@ sh_binary(
     name = "index",
     srcs = ["run_zoekt_index.sh"],
     data = [
-        "@com_github_google_zoekt//cmd/zoekt-index",
+        "@com_github_sourcegraph_zoekt//cmd/zoekt-index",
         "@gotopt2//cmd/gotopt2",
     ],
     deps = ["@bazel_tools//tools/bash/runfiles"],
@@ -38,7 +38,7 @@ sh_binary(
     name = "serve",
     srcs = ["run_zoekt_server.sh"],
     data = [
-        "@com_github_google_zoekt//cmd/zoekt-webserver",
+        "@com_github_sourcegraph_zoekt//cmd/zoekt-webserver",
         "@gotopt2//cmd/gotopt2",
     ],
     deps = ["@bazel_tools//tools/bash/runfiles"],
@@ -56,8 +56,8 @@ pkg_zip(
         ":serve",
         "//build/release:BUILD.bazel",
         "//build/release:WORKSPACE",
-        "@com_github_google_zoekt//cmd/zoekt-index",
-        "@com_github_google_zoekt//cmd/zoekt-webserver",
+        "@com_github_sourcegraph_zoekt//cmd/zoekt-index",
+        "@com_github_sourcegraph_zoekt//cmd/zoekt-webserver",
         "@gotopt2//cmd/gotopt2",
     ],
     package_dir = "bazoekt",
