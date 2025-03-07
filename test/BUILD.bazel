@@ -4,10 +4,10 @@ go_library(
     name = "test_lib",
     srcs = ["main.go"],
     importpath = "github.com/filmil/bazoekt/test",
-    deps = [
-        "@com_github_google_zoekt//:go_default_library",
-    ],
     visibility = ["//visibility:private"],
+    deps = [
+        "@com_github_sourcegraph_zoekt//:zoekt",
+    ],
 )
 
 go_binary(
