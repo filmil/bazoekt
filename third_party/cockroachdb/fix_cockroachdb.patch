@@ -1,0 +1,21 @@
+diff '--color=auto' -r -u g1/com_github_cockroachdb_errors/errorspb/BUILD.bazel g2/com_github_cockroachdb_errors/errorspb/BUILD.bazel
+--- g1/com_github_cockroachdb_errors/errorspb/BUILD.bazel	2025-03-16 02:32:23.944742036 -0700
++++ g2/com_github_cockroachdb_errors/errorspb/BUILD.bazel	2025-03-16 02:33:46.570240315 -0700
+@@ -13,7 +13,7 @@
+     ],
+     visibility = ["//visibility:public"],
+     deps = [
+-        "//gogoproto:gogoproto_proto",
++        "@com_github_cosmos_gogoproto//gogoproto:gogoproto_proto",
+         "@com_google_protobuf//:any_proto",
+     ],
+ )
+@@ -23,7 +23,7 @@
+     importpath = "github.com/cockroachdb/errors/errorspb",
+     proto = ":errorspb_proto",
+     visibility = ["//visibility:public"],
+-    deps = ["//gogoproto:gogo_proto"],
++    deps = ["@com_github_cosmos_gogoproto//gogoproto:gogo_proto"],
+ )
+ 
+ go_library(

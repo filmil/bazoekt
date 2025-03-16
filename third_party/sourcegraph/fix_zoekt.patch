@@ -1,0 +1,19 @@
+diff '--color=auto' -r -u 1/com_github_sourcegraph_zoekt/grpc/protos/zoekt/webserver/v1/BUILD.bazel 2/com_github_sourcegraph_zoekt/grpc/protos/zoekt/webserver/v1/BUILD.bazel
+--- 1/com_github_sourcegraph_zoekt/grpc/protos/zoekt/webserver/v1/BUILD.bazel	2025-03-16 02:18:27.601807850 -0700
++++ 2/com_github_sourcegraph_zoekt/grpc/protos/zoekt/webserver/v1/BUILD.bazel	2025-03-16 02:20:02.371235739 -0700
+@@ -10,7 +10,6 @@
+     ],
+     visibility = ["//visibility:public"],
+     deps = [
+-        "//zoekt/webserver/v1:v1_proto",
+         "@com_google_protobuf//:duration_proto",
+         "@com_google_protobuf//:timestamp_proto",
+     ],
+@@ -22,7 +21,6 @@
+     importpath = "github.com/sourcegraph/zoekt/grpc/protos/zoekt/webserver/v1",
+     proto = ":v1_proto",
+     visibility = ["//visibility:public"],
+-    deps = ["//zoekt/webserver/v1:query_proto"],
+ )
+ 
+ go_library(

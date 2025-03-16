@@ -98,6 +98,12 @@ def bazoekt_go_dependencies():
         importpath = "github.com/cockroachdb/errors",
         sum = "h1:5bA+k2Y6r+oz/6Z/RFlNeVCesGARKuC6YymtcDrbC/I=",
         version = "v1.11.3",
+        patches = [
+            "//third_party/cockroachdb:fix_cockroachdb.patch",
+        ],
+        patch_args = [
+            "-p2",
+        ],
     )
     go_repository(
         name = "com_github_cockroachdb_logtags",
@@ -596,6 +602,12 @@ def bazoekt_go_dependencies():
         importpath = "github.com/sourcegraph/zoekt",
         sum = "h1:eRjX/TKjlw/JhVcnnkQmFdlj4uexBR3BKNAVUax1YKM=",
         version = "v0.0.0-20250310123800-36d2419402a1",
+        patches = [
+            "//third_party/sourcegraph:fix_zoekt.patch",
+        ],
+        patch_args = [
+            "-p2",
+        ],
     )
     go_repository(
         name = "com_github_stretchr_objx",

@@ -27,6 +27,7 @@ http_archive(
         "https://github.com/bazelbuild/bazel-gazelle/releases/download/v0.37.0/bazel-gazelle-v0.37.0.tar.gz",
     ],
 )
+load("@bazel_gazelle//:deps.bzl", "go_repository")
 
 
 load("@io_bazel_rules_go//go:deps.bzl", "go_register_toolchains", "go_rules_dependencies")
@@ -84,3 +85,11 @@ http_archive(
 load("@rules_pkg//:deps.bzl", "rules_pkg_dependencies")
 rules_pkg_dependencies()
 # END: rules_pkg
+
+
+
+go_repository(
+    name = "com_github_cosmos_gogoproto",
+    importpath = "github.com/cosmos/gogoproto",
+    commit = "28b2facaa30178e137477bcc756a72a7a3c84b6b",
+)
