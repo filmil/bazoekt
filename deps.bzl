@@ -594,8 +594,8 @@ def bazoekt_go_dependencies():
     go_repository(
         name = "com_github_sourcegraph_zoekt",
         importpath = "github.com/sourcegraph/zoekt",
-        sum = "h1:rGJM3gtyBg5jE0GJO8D2rEJdiim/HzgSbEFHL1KafY0=",
-        version = "v0.0.0-20250306182156-fbc543834aa2",
+        sum = "h1:eRjX/TKjlw/JhVcnnkQmFdlj4uexBR3BKNAVUax1YKM=",
+        version = "v0.0.0-20250310123800-36d2419402a1",
     )
     go_repository(
         name = "com_github_stretchr_objx",

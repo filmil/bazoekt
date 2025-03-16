@@ -2,7 +2,7 @@ module github.com/filmil/bazoekt
 
 go 1.24.1
 
-require github.com/sourcegraph/zoekt v0.0.0-20250306182156-fbc543834aa2
+require github.com/sourcegraph/zoekt v0.0.0-20250310123800-36d2419402a1
 
 require (
 	github.com/RoaringBitmap/roaring v1.9.4 // indirect
