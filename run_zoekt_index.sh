@@ -30,7 +30,7 @@ fi
 # --- end runfiles.bash initialization ---
 
 readonly _gotopt_binary="${RLOC_gotopt2:-$(rlocation gotopt2/cmd/gotopt2/gotopt2_/gotopt2)}"
-readonly _zoekt_binary="${RLOC_zoekt:-$(rlocation com_github_google_zoekt/cmd/zoekt-index/zoekt-index_/zoekt-index)}"
+readonly _zoekt_binary="${RLOC_zoekt:-$(rlocation com_github_sourcegraph_zoekt/cmd/zoekt-index/zoekt-index_/zoekt-index)}"
 
 # Exit quickly if the binary isn't found. This may happen if the binary location
 # moves internally in bazel.
