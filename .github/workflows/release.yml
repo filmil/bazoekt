@@ -14,9 +14,9 @@ jobs:
       - name: Setup bazel
         uses: abhinavsingh/setup-bazel@v3
         with:
-          version: 6.4.0
+          version: 6.5.0
       - name: Checkout
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
       - name: "Test"
         run: "bazel test --test_output=errors //..."
       - name: "Build binaries for ${{ matrix.os }}_${{ matrix.arch }}"
