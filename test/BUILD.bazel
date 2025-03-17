@@ -6,7 +6,7 @@ go_library(
     importpath = "github.com/filmil/bazoekt/test",
     visibility = ["//visibility:private"],
     deps = [
-        "@com_github_sourcegraph_zoekt//:zoekt",
+        "@com_github_filmil_zoekt//:zoekt",
     ],
 )
 
