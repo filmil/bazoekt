@@ -1,9 +1,0 @@
---- cmd/gotopt2/BUILD.bazel
-+++ cmd/gotopt2/BUILD.bazel
-@@ -1,5 +1,6 @@
- load("//build:my_package_name.bzl", "name_part_from_command_line")
- load("@bazel_bats//:rules.bzl", "bats_test")
- load("@rules_go//go:def.bzl", "go_binary", "go_library")
-+load("@rules_shell//shell:sh_test.bzl", "sh_test")
- load("@rules_pkg//pkg:zip.bzl", "pkg_zip")
- 
