@@ -1,27 +1,16 @@
+load("@rules_shell//shell:sh_binary.bzl", "sh_binary")
 load("@bazel_gazelle//:def.bzl", "gazelle")
-load("@com_github_bazelbuild_buildtools//buildifier:def.bzl", "buildifier")
+load("@buildifier_prebuilt//:rules.bzl", "buildifier")
 load("@rules_pkg//pkg:zip.bzl", "pkg_zip")
 load("//build:my_package_name.bzl", "name_part_from_command_line")
 
 # bazel run //:gazelle
-# bazel run //:gazelle -- update-repos --from_file=go.mod
 # gazelle:prefix github.com/filmil/bazoekt
 gazelle(name = "gazelle")
 
 # bazel run //:buildifier
 buildifier(
     name = "buildifier",
-)
-
-# bazel run //:gazelle-update-repos
-gazelle(
-    name = "gazelle-update-repos",
-    args = [
-        "-from_file=go.mod",
-        "-to_macro=deps.bzl%bazoekt_go_dependencies",
-        "-prune",
-    ],
-    command = "update-repos",
 )
 
 sh_binary(
@@ -55,7 +44,7 @@ pkg_zip(
         ":index",
         ":serve",
         "//build/release:BUILD.bazel",
-        "//build/release:WORKSPACE",
+        "//build/release:MODULE.bazel",
         "@com_github_google_zoekt//cmd/zoekt-index",
         "@com_github_google_zoekt//cmd/zoekt-webserver",
         "@gotopt2//cmd/gotopt2",

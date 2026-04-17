@@ -2,3 +2,5 @@
 try-import %workspace%/user.bazelrc
 
 # Add project-wide settings below.
+common --registry=https://raw.githubusercontent.com/filmil/bazel-registry/main
+common --registry=https://bcr.bazel.build
