@@ -2,28 +2,25 @@
 
 Easy indexing for your Bazel project. $\text{bazoekt} = \text{bazel} + \text{zoekt}$
 
-This is a small wrapper and an easy addition to your Bazel projects, that provides powerful code indexing features. It is easy for anyone to add indexing to a Bazel project. But now, that work has been done for you, so you can save yourself some 30 or so minutes with `bazoekt`. Add it to your Bazel `WORKSPACE`, and you  get fast code indexing and search.
+This is a small wrapper and an easy addition to your Bazel projects, that provides powerful code indexing features. It is easy for anyone to add indexing to a Bazel project. But now, that work has been done for you, so you can save yourself some 30 or so minutes with `bazoekt`. Add it to your Bazel `MODULE.bazel`, and you get fast code indexing and search.
 
 Thanks to the excellent [`zoekt`][zo] software by H.-W. Nijenhuis which does the real actual work. I only provided the glue.
-
 
 [zo]: https://github.com/google/zoekt
 
 ## Installation
 
-Add the following into your WORKSPACE file:
+First, configure your `.bazelrc` to pull modules from the custom registry:
 
 ```
-# BEGIN: bazoekt
-http_archive(
-    name = "bazoekt",
-    sha256 = "",
-    strip_prefix = "bazoekt",
-    urls = [
-        "https://github.com/filmil/bazoekt/releases/download/0.0.7/bazoekt-linux-amd64.zip",
-    ],
-)
-# END: bazoekt
+common --registry=https://raw.githubusercontent.com/filmil/bazel-registry/main
+common --registry=https://bcr.bazel.build
+```
+
+Next, add the following into your `MODULE.bazel` file:
+
+```starlark
+bazel_dep(name = "bazoekt", version = "0.0.8")
 ```
 
 This should be enough to have `bazoekt` available to you.
