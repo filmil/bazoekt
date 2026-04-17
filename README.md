@@ -22,7 +22,7 @@ common --registry=https://bcr.bazel.build
 Next, add the following into your `MODULE.bazel` file:
 
 ```starlark
-bazel_dep(name = "bazoekt", version = "0.1.1", dev = True)
+bazel_dep(name = "bazoekt", version = "0.1.1", dev_dependency = True)
 ```
 
 This should be enough to have `bazoekt` available to you.
