@@ -8,7 +8,7 @@ This is a small wrapper and an easy addition to your Bazel projects, that provid
 
 Thanks to the excellent [`zoekt`][zo] software by H.-W. Nijenhuis which does the real actual work. I only provided the glue.
 
-[zo]: https://github.com/google/zoekt
+[zo]: https://github.com/filmil/zoekt
 
 ## Installation
 
