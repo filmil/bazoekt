@@ -1,4 +1,4 @@
-# Bazoekt [![Test status](https://github.com/filmil/bazoekt/workflows/Test/badge.svg)](https://github.com/filmil/bazoekt/workflows/Test/badge.svg)
+# Bazoekt [![Test](https://github.com/filmil/bazoekt/actions/workflows/test.yml/badge.svg)](https://github.com/filmil/bazoekt/actions/workflows/test.yml) [![Release](https://github.com/filmil/bazoekt/actions/workflows/release.yml/badge.svg)](https://github.com/filmil/bazoekt/actions/workflows/release.yml)
 
 Easy indexing for your Bazel project. $\text{bazoekt} = \text{bazel} + \text{zoekt}$
 
