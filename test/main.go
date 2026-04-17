@@ -3,7 +3,7 @@ package main
 import (
 	"fmt"
 
-	"github.com/sourcegraph/zoekt"
+	"github.com/google/zoekt"
 )
 
 func main() {
