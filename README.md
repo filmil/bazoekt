@@ -1,4 +1,4 @@
-# Bazoekt [![Test](https://github.com/filmil/bazoekt/actions/workflows/test.yml/badge.svg)](https://github.com/filmil/bazoekt/actions/workflows/test.yml) [![Release](https://github.com/filmil/bazoekt/actions/workflows/release.yml/badge.svg)](https://github.com/filmil/bazoekt/actions/workflows/release.yml)
+# Bazoekt [![Test](https://github.com/filmil/bazoekt/actions/workflows/test.yml/badge.svg)](https://github.com/filmil/bazoekt/actions/workflows/test.yml) [![Release](https://github.com/filmil/bazoekt/actions/workflows/release.yml/badge.svg)](https://github.com/filmil/bazoekt/actions/workflows/release.yml) [![Publish on Bazel Central Registry](https://github.com/filmil/bazoekt/actions/workflows/publish-bcr.yml/badge.svg)](https://github.com/filmil/bazoekt/actions/workflows/publish-bcr.yml) [![Publish to my Bazel registry](https://github.com/filmil/bazoekt/actions/workflows/publish.yml/badge.svg)](https://github.com/filmil/bazoekt/actions/workflows/publish.yml)
 
 Easy indexing for your Bazel project. $\text{bazoekt} = \text{bazel} + \text{zoekt}$
 
@@ -10,7 +10,7 @@ Thanks to the excellent [`zoekt`][zo] software by H.-W. Nijenhuis which does the
 
 ## Installation
 
-First, configure your `.bazelrc` to pull modules from the custom registry:
+First, configure your `.bazelrc` to pull modules from the custom registry. Add the following to your `.bazelrc` to get access to my bazel registry:
 
 ```
 common --registry=https://raw.githubusercontent.com/filmil/bazel-registry/main
