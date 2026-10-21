@@ -1,6 +1,6 @@
 module github.com/filmil/bazoekt
 
-go 1.25.6
+go 1.26.10
 
 require github.com/google/zoekt v0.0.0-20210929185036-f7d54faa261b
 
